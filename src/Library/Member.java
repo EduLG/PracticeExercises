@@ -4,7 +4,7 @@ public class Member {
 
     private String number, name, adress;
 
-    private Member (String number, String name, String adress){
+    public Member (String number, String name, String adress){
         this.number = number;
         this.name = name;
         this.adress = adress;

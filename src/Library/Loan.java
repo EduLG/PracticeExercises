@@ -43,6 +43,6 @@ public class Loan {
     @Override
 
     public String toString() {
-        return "Loan:\n" + "Borrowed book: " + 
+        return "Loan:\n" + "Borrowed book: " + borrowedBook + "\nMember N.: " + memberNumber + "\nDate of loan: " + date;
     }
 }
