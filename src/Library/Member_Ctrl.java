@@ -1,7 +1,6 @@
 package Library;
 
 import java.io.IOException;
-import java.lang.reflect.Member;
 import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -29,7 +28,7 @@ public class Member_Ctrl {
     public static void register(Member member) {
 
         try{
-            BufferedWriter br = new BufferedWriter(new FileWriter("Register.txt, true"));
+            BufferedWriter br = new BufferedWriter(new FileWriter("Register.txt", true));
             br.write(member.getNumber() + FIELD_SEPARATOR + member.getName() + FIELD_SEPARATOR + member.getAdress() + FIELD_SEPARATOR);
         }catch (IOException e){
             System.out.println("Couldn't register.");
