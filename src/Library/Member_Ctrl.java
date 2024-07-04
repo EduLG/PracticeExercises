@@ -1,9 +1,13 @@
 package Library;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
 
 
 public class Member_Ctrl {
@@ -35,5 +39,36 @@ public class Member_Ctrl {
         }
 
     }
+
+    public static ArrayList<Member> get() {
+        ArrayList<Member> members = new ArrayList<>();
+        FileReader fr = null;
+        BufferedReader br = null;
+        try {
+            fr = new FileReader(FILE_NAME);
+            br = new BufferedReader(fr);
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] socioComoArreglo = linea.split(FIELD_SEPARATOR);
+                members.add(new Member(socioComoArreglo[0], socioComoArreglo[1], socioComoArreglo[2]));
+            }
+        }catch (IOException e) {
+            System.out.println("Couldn't read file : " + e.getMessage());
+        }finally{
+            try{
+                if (fr != null){
+                    fr.close();
+                }
+                if (br != null){
+                    br.close();
+                }
+            }catch (IOException finalExc){
+
+            }
+        }
+        return members;
+    }
+
+
 
 }
